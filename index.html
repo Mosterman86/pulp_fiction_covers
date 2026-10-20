@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Judging by the Cover</title>
+  <meta name="description" content="A media literacy proof of concept: read four pulp paperback covers for the gaze, gender, race, violence, sexuality and the conventions that sold them.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300..900;1,300..900&display=swap">
+  <link rel="stylesheet" href="css/cover.css">
+</head>
+<body>
+<!--APP-START-->
+<div class="app" id="app">
+  <a class="skip" href="#view">Skip to content</a>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <a class="brand-org" href="https://wolfsonian.org" target="_blank" rel="noopener">Wolfsonian–FIU</a>
+        <span class="brand-sep" aria-hidden="true">|</span>
+        <span class="poc">Proof of Concept</span>
+      </div>
+      <nav class="topnav" aria-label="Project">
+        <button class="nav-link" type="button" data-info="about" aria-haspopup="dialog">About</button>
+        <button class="nav-link" type="button" data-info="how" aria-haspopup="dialog">How It Works</button>
+        <span class="nav-sep" aria-hidden="true">|</span>
+        <a class="nav-link labs" href="https://labs.wolfsonian.org" target="_blank" rel="noopener">Wolfsonian Digital Labs</a>
+        <button class="mine-btn" id="mineBtn" type="button" aria-haspopup="dialog" aria-controls="drawer">
+          <span class="mine-dot" aria-hidden="true"></span>
+          My responses <span class="mine-count" id="mineCount">0</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="view" class="view" tabindex="-1"></main>
+
+  <footer class="foot">
+    <div class="foot-inner">
+      <span>Judging by the Cover · Proof of Concept</span>
+      <span>The Wolfsonian–FIU · Wolfsonian Digital Labs</span>
+    </div>
+  </footer>
+
+  <!-- My responses drawer -->
+  <div class="scrim" id="scrim" hidden></div>
+  <aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="drawerTitle" hidden>
+    <div class="drawer-head">
+      <div>
+        <p class="eyebrow">Your answers</p>
+        <h2 id="drawerTitle">My responses</h2>
+      </div>
+      <button class="icon-btn" id="drawerClose" type="button" aria-label="Close my responses">✕</button>
+    </div>
+    <div class="drawer-body" id="drawerBody"></div>
+    <div class="drawer-foot">
+      <p class="fine">Your answers stay on this screen only. Starting over clears them for the next visitor.</p>
+      <button class="btn btn-ghost" id="resetBtn" type="button">Start over</button>
+    </div>
+  </aside>
+
+  <!-- About / How It Works -->
+  <div class="scrim" id="infoScrim" hidden></div>
+  <div class="info" id="info" role="dialog" aria-modal="true" aria-labelledby="infoTitle" hidden>
+    <div class="info-head">
+      <h2 id="infoTitle">About This Project</h2>
+      <button class="icon-btn" id="infoClose" type="button" aria-label="Close">✕</button>
+    </div>
+    <div class="info-body" id="info-about">
+      <p class="info-note"><strong>Note:</strong> All descriptive and interpretive text throughout this interactive — including component labels, descriptions, and contextual callouts — is placeholder content developed for prototype purposes. It has not been reviewed against primary sources or verified by a curator, and should not be treated as authoritative. All content is subject to revision prior to any public publication.</p>
+      <p>This interactive is a proof of concept developed by the Wolfsonian Digital Labs as part of an ongoing exploration of object-based digital interpretation.</p>
+      <p class="fine">Content note: the covers include sexualized and violent imagery, shown here for critical discussion.</p>
+      <button class="link-btn" type="button" data-info="how">How It Works →</button>
+    </div>
+    <div class="info-body" id="info-how" hidden>
+      <ol class="steps">
+        <li><span><strong>Choose a cover.</strong> Four paperbacks from four genres: a literary reprint, a crime novel, an adventure story and an adult paperback.</span></li>
+        <li><span><strong>Take a first look.</strong> Give the cover a few seconds before reading anything. Notice where your eye goes first.</span></li>
+        <li><span><strong>Look closely.</strong> Tap the glowing points to see how each part of the cover works. Choose a lens, such as the gaze, gender or race, to show only those details.</span></li>
+        <li><span><strong>Read the book and its times.</strong> The Book and Context tabs cover who made it, what it was about and how it was sold.</span></li>
+        <li><span><strong>Analyze.</strong> The Analysis tab reads the whole cover through each lens.</span></li>
+        <li><span><strong>Respond.</strong> Answer a question in your own words. Your responses collect under My responses, and Start over clears them for the next visitor.</span></li>
+      </ol>
+      <button class="link-btn" type="button" data-info="about">About This Project →</button>
+    </div>
+  </div>
+
+  <!-- Idle reset (kiosk) -->
+  <div class="idle" id="idle" role="alertdialog" aria-labelledby="idleTitle" hidden>
+    <div class="idle-card">
+      <p class="eyebrow">Still exploring?</p>
+      <h2 id="idleTitle">This screen will reset in <span id="idleCount">20</span> seconds</h2>
+      <p>Your answers will be cleared so the next visitor can start fresh.</p>
+      <button class="btn" id="idleStay" type="button">Keep exploring</button>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <div class="placer" id="placer" hidden></div>
+</div>
+<!--APP-END-->
+<script src="data/covers.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
